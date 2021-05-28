@@ -13,6 +13,11 @@ if (!empty($_POST)) {
     $table->ins($_POST);
     header("Location: ?");
 }
+if (!empty($_GET)) {
+    $table->del($_GET['nomer']);
+    header("Location: ?");
+}
+
 $map = $table->get();
 //print_r($table);
 ?>
@@ -37,7 +42,8 @@ $map = $table->get();
 
     echo "<th>fio</th><th>zp</th><th>delete</th><th>edit</th>";
     foreach ($map as $value) {
-        echo "<tr><td>$value[fio]</td><td>$value[zp]</td><td><a href='delete.php?nomer=$value[nomer]'>❌</a></td><td><a href='update.php?nomer=$value[nomer]'>✏️</a></td></tr>";
+        echo "<tr><td>$value[fio]</td><td>$value[zp]</td><td><a href='index.php?nomer=$value[nomer]'>❌</a></td>
+              <td><a href='update.php?nomer=$value[nomer]'>✏️</a></td></tr>";
     }
     ?>
 </table>
