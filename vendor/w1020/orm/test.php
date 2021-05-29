@@ -1,5 +1,5 @@
 <?php
-include 'vendor/autoload.php';
+include '../../../vendor/autoload.php';
 
 use W1020\Db;
 use W1020\CRUD;
@@ -28,5 +28,5 @@ $table = new Table($config);
 echo $table->rowCount();
 $table->setPageSize(10);
 echo $table->pageCount();
-print_r($table->getPage(2));
+print_r($table->getPage(1));
 
